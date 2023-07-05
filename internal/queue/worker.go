@@ -14,7 +14,7 @@ type worker struct {
 
 func (w *worker) start(ctx context.Context) {
 	for job := range w.jobChan {
-		_, err := w.financialService.CreateFinancialData(ctx, financial.FinacialModel{
+		_, err := w.financialService.CreateFinancialData(ctx, financial.FinancialModel{
 			SeriesReference: job.SeriesReference,
 			Period:          job.Period,
 			DataValue:       job.DataValue,

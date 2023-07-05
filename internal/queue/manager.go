@@ -48,13 +48,13 @@ func (m *Manager) startDispatcher(ctx context.Context, filePath string) error {
 	if filePath == "" {
 		return fmt.Errorf("filePath is empty")
 	}
-	csvfile, err := os.Open(filePath)
+	csvFile, err := os.Open(filePath)
 	if err != nil {
 		return err
 	}
-	defer csvfile.Close()
+	defer csvFile.Close()
 
-	reader := csv.NewReader(csvfile)
+	reader := csv.NewReader(csvFile)
 	errChan := make(chan error)
 	go func(chan error) {
 		i := 0

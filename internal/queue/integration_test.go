@@ -13,7 +13,7 @@ import (
 )
 
 func TestManager_Run(t *testing.T) {
-	//we do this to be sure that when tests run cuncurrently
+	//we do this to be sure that when tests run concurrently
 	//the db data changes in other tests does not affect this one
 	time.Sleep(3 * time.Second)
 	container := di.NewContainer()
@@ -40,7 +40,7 @@ func TestManager_Run(t *testing.T) {
 	coll = mongoDBClient.Database(dbName).Collection("financialData")
 	cursor, err := coll.Find(ctx, bson.M{})
 	assert.Nil(t, err)
-	var results []financial.FinacialModel
+	var results []financial.FinancialModel
 	err = cursor.All(ctx, &results)
 	assert.Nil(t, err)
 	assert.Equal(t, len(results), 10)

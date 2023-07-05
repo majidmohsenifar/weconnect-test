@@ -14,7 +14,7 @@ const (
 	financialDataCollectionName = "financialData"
 )
 
-type FinacialModel struct {
+type FinancialModel struct {
 	ID              primitive.ObjectID `bson:"_id"`
 	SeriesReference string             `bson:"seriesReference"`
 	Period          string             `bson:"period"`
@@ -54,7 +54,7 @@ type Repository struct {
 	mongoDBClient *mongo.Client
 }
 
-func (r *Repository) GetFinancialDataByPagination(ctx context.Context, page, pageSize int) ([]FinacialModel, error) {
+func (r *Repository) GetFinancialDataByPagination(ctx context.Context, page, pageSize int) ([]FinancialModel, error) {
 	opts := options.Find().
 		SetLimit(int64(pageSize)).
 		SetSkip(int64(page * pageSize))
@@ -63,7 +63,7 @@ func (r *Repository) GetFinancialDataByPagination(ctx context.Context, page, pag
 	if err != nil {
 		return nil, err
 	}
-	var results []FinacialModel
+	var results []FinancialModel
 	err = cursor.All(ctx, &results)
 	if err != nil {
 		return nil, err
@@ -71,7 +71,7 @@ func (r *Repository) GetFinancialDataByPagination(ctx context.Context, page, pag
 	return results, nil
 }
 
-func (r *Repository) CreateFinancialData(ctx context.Context, m FinacialModel) (string, error) {
+func (r *Repository) CreateFinancialData(ctx context.Context, m FinancialModel) (string, error) {
 	m.ID = primitive.NewObjectID()
 	coll := r.mongoDBClient.Database(r.dbName).Collection(financialDataCollectionName)
 	result, err := coll.InsertOne(ctx, m)
@@ -82,18 +82,18 @@ func (r *Repository) CreateFinancialData(ctx context.Context, m FinacialModel) (
 	return id.Hex(), nil
 }
 
-func (r *Repository) GetFinancialDataByID(ctx context.Context, id string) (FinacialModel, error) {
+func (r *Repository) GetFinancialDataByID(ctx context.Context, id string) (FinancialModel, error) {
 	coll := r.mongoDBClient.Database(r.dbName).Collection(financialDataCollectionName)
 	objectID, err := primitive.ObjectIDFromHex(id)
 	if err != nil {
-		return FinacialModel{}, err
+		return FinancialModel{}, err
 	}
 	filter := bson.D{{"_id", objectID}}
 	res := coll.FindOne(ctx, filter)
 	if res.Err() != nil {
-		return FinacialModel{}, res.Err()
+		return FinancialModel{}, res.Err()
 	}
-	m := FinacialModel{}
+	m := FinancialModel{}
 	err = res.Decode(&m)
 	return m, err
 }

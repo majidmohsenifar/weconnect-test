@@ -41,7 +41,7 @@ func TestIndex(t *testing.T) {
 	engine := httpServer.GetEngine()
 
 	//first we insert 4 docs to db
-	id1, err := financialService.CreateFinancialData(ctx, financial.FinacialModel{
+	id1, err := financialService.CreateFinancialData(ctx, financial.FinancialModel{
 		SeriesReference: "sr1",
 		Period:          "period1",
 		DataValue:       "dataValue1",
@@ -58,7 +58,7 @@ func TestIndex(t *testing.T) {
 		SeriesTitle5:    "seriesTitle51",
 	})
 	assert.Nil(t, err)
-	id2, err := financialService.CreateFinancialData(ctx, financial.FinacialModel{
+	id2, err := financialService.CreateFinancialData(ctx, financial.FinancialModel{
 		SeriesReference: "sr2",
 		Period:          "period2",
 		DataValue:       "dataValue2",
@@ -75,7 +75,7 @@ func TestIndex(t *testing.T) {
 		SeriesTitle5:    "seriesTitle52",
 	})
 	assert.Nil(t, err)
-	id3, err := financialService.CreateFinancialData(ctx, financial.FinacialModel{
+	id3, err := financialService.CreateFinancialData(ctx, financial.FinancialModel{
 		SeriesReference: "sr3",
 		Period:          "period3",
 		DataValue:       "dataValue3",
@@ -92,7 +92,7 @@ func TestIndex(t *testing.T) {
 		SeriesTitle5:    "seriesTitle53",
 	})
 	assert.Nil(t, err)
-	id4, err := financialService.CreateFinancialData(ctx, financial.FinacialModel{
+	id4, err := financialService.CreateFinancialData(ctx, financial.FinancialModel{
 		SeriesReference: "sr4",
 		Period:          "period4",
 		DataValue:       "dataValue4",
@@ -290,7 +290,7 @@ func TestCreate_Update_Delete(t *testing.T) {
 	filter := bson.D{{"_id", objectID}}
 	dbResult := coll.FindOne(ctx, filter)
 	assert.Nil(t, dbResult.Err())
-	m := financial.FinacialModel{}
+	m := financial.FinancialModel{}
 	err = dbResult.Decode(&m)
 	assert.Nil(t, err)
 	assert.Equal(t, m.ID.Hex(), id)
@@ -343,7 +343,7 @@ func TestCreate_Update_Delete(t *testing.T) {
 	assert.Nil(t, err)
 	dbResult = coll.FindOne(ctx, filter)
 	assert.Nil(t, dbResult.Err())
-	m = financial.FinacialModel{}
+	m = financial.FinancialModel{}
 	err = dbResult.Decode(&m)
 	assert.Nil(t, err)
 	assert.Equal(t, m.ID.Hex(), id)

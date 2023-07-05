@@ -126,7 +126,7 @@ func (s *Service) CreateFinancialDataByUser(
 	ctx context.Context,
 	params CreateFinancialDataParams,
 ) (apiResponse response.ApiResponse, statusCode int) {
-	id, err := s.CreateFinancialData(ctx, FinacialModel{
+	id, err := s.CreateFinancialData(ctx, FinancialModel{
 		SeriesReference: params.SeriesReference,
 		Period:          params.Period,
 		DataValue:       params.DataValue,
@@ -157,7 +157,7 @@ func (s *Service) CreateFinancialDataByUser(
 
 func (s *Service) CreateFinancialData(
 	ctx context.Context,
-	data FinacialModel,
+	data FinancialModel,
 ) (string, error) {
 	return s.repo.CreateFinancialData(ctx, data)
 }
