@@ -20,7 +20,7 @@ for testing API use postman collection provided in project.
 
 # Points
 - tests are written in financial and queue package.
-- we use real database for intergration tests
+- we use real database for integration tests
 
 # Extra libraries used
 - gin for routing
