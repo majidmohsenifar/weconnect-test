@@ -1,0 +1,142 @@
+{
+	"info": {
+		"_postman_id": "6e8d4c1c-fb23-4572-a5f2-d08525e6fdac",
+		"name": "weconnect-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "597861"
+	},
+	"item": [
+		{
+			"name": "list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8000/api/v1/financial?page=0&pageSize=100",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"financial"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\t{\n\t\t\"seriesReference\":\"newSr2\",\n\t\t\"period\":\"newPeriod\",\n\t\t\"dataValue\":\"newDataValue\",\n\t\t\"suppressed\":\"newSuppressed\",\n\t\t\"status\":\"newStatus\",\n\t\t\"units\":\"newUnits\",\n\t\t\"magnitude\":\"newMagnitude\",\n\t\t\"subject\":\"newSubject\",\n\t\t\"group\":\"newGroup\",\n\t\t\"seriesTitle1\":\"newSeriesTitle1\",\n\t\t\"seriesTitle2\":\"newSeriesTitle2\",\n\t\t\"seriesTitle3\":\"newSeriesTitle3\",\n\t\t\"seriesTitle4\":\"newSeriesTitle4\",\n\t\t\"seriesTitle5\":\"newSeriesTitle5\"\n\t}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/api/v1/financial/create",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"financial",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\t{\n        \"id\":\"64a5aa8bce6d4fe8578aebda\",\n\t\t\"seriesReference\":\"updatedSr2\",\n\t\t\"period\":\"updatedPeriod\",\n\t\t\"dataValue\":\"updatedDataValue\",\n\t\t\"suppressed\":\"newSuppressed\",\n\t\t\"status\":\"newStatus\",\n\t\t\"units\":\"newUnits\",\n\t\t\"magnitude\":\"newMagnitude\",\n\t\t\"subject\":\"newSubject\",\n\t\t\"group\":\"newGroup\",\n\t\t\"seriesTitle1\":\"newSeriesTitle1\",\n\t\t\"seriesTitle2\":\"newSeriesTitle2\",\n\t\t\"seriesTitle3\":\"newSeriesTitle3\",\n\t\t\"seriesTitle4\":\"newSeriesTitle4\",\n\t\t\"seriesTitle5\":\"newSeriesTitle5\"\n\t}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/api/v1/financial/update",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"financial",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\t{\n\t\t\"id\":\"64a5aa8bce6d4fe8578aebda\"\n\t\t\n\t}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/api/v1/financial/delete",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"financial",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

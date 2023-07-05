@@ -1,0 +1,27 @@
+version: '3'
+services:
+  mongodb:
+    container_name: mongodb
+    image: mongo:6-jammy
+    ports:
+      - '27017:27017'
+    volumes:
+      - weconnect-db:/data/db
+
+  api:
+    container_name: weconnect-api
+    build:
+      context: ./.docker/go/
+    restart: always
+    working_dir: /app
+    ports:
+      - '8000:8000'
+    command: bash -c "go build -o main ./cmd && ./main"
+    volumes:
+      - .:/app
+
+volumes:
+    weconnect-db:
+
+
+

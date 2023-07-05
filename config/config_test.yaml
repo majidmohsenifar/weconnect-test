@@ -1,0 +1,7 @@
+project:
+  environment: "test"
+
+mongodb:
+  dsn: "mongodb://mongodb:27017/weConnectDb_test"
+  dbname: "weConnectDb_test"
+

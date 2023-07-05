@@ -1,0 +1,6 @@
+project:
+  environment: "dev"
+
+mongodb:
+  dsn: "mongodb://mongodb:27017/weConnectDb"
+  dbname: "weConnectDb"
