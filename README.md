@@ -8,6 +8,7 @@ also there is a code to read the csv_file and enter its data to mongodb using wo
 - run by `docker-compose up -d` which would starts the http server on port 8000
 - it takes some time to populate data to database, and after that the list api
   would return data
+- for running test you can user `docker-compose exec api go test ./...` 
 
 # APIs
 for testing API use postman collection provided in project.
