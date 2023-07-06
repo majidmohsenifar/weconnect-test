@@ -16,7 +16,7 @@ services:
     working_dir: /app
     ports:
       - '8000:8000'
-    command: bash -c "go build -o main ./cmd && ./main"
+    command: bash -c "go build -buildvcs=false -o main ./cmd && ./main"
     volumes:
       - .:/app
 
